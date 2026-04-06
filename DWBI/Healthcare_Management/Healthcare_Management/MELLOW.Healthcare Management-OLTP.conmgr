@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MELLOW.Healthcare Management-OLTP"
+  DTS:DTSID="{4AFB2BA4-249E-4D79-9A1F-B360D3FBF88E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=MELLOW;Initial Catalog=Healthcare Management-OLTP;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Healthcare_Management-{4AFB2BA4-249E-4D79-9A1F-B360D3FBF88E}MELLOW.Healthcare Management-OLTP;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

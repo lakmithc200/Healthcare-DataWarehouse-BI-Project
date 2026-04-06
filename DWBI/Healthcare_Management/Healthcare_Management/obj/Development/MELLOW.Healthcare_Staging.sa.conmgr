@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MELLOW.Healthcare_Staging.sa"
+  DTS:DTSID="{61C598AE-4DA2-4E7D-AB8A-D796C3AB6DF5}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=MELLOW;User ID=sa;Initial Catalog=Healthcare_Staging;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Healthcare_Management-{61C598AE-4DA2-4E7D-AB8A-D796C3AB6DF5}MELLOW.Healthcare_Staging.sa;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAADxlAkMKEXkGiWJJJtkLeQwAAAAACAAAAAAAQZgAAAAEAACAAAAA2sU9h108WoYaZXFuuEfaqolEhY/t6qDsuxOskFC1ffQAAAAAOgAAAAAIAACAAAABlufAmfxHXjtlv2a9wbrHKWtfWS91iwOcjurmOj5gbbHAAAABZbJHGgTQyGb0iz9bHW/x3VtivJJQhjDbOdwREI8zsxYIGHpD8HJuYDrC8yZGcGcVasQq0cq4SP14RKpruHp25XxXW8KPCvYdd2RDnZH/n6ag/76pgY5aUGzR449eEBnMFT3xeapUkxCfe/8dEBo/mQAAAAAtfiVoQzdbihEHumN9imjLbUZ73zDCz3qz5+a+tL9idA7W1dxU7Lr1HP9bXvwycVjnecNVZ5VqfkktbVwoNn2U=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

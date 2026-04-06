@@ -1,0 +1,3345 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/26/2026 6:28:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MELLOW"
+  DTS:CreatorName="MELLOW\MELLOW"
+  DTS:DTSID="{2DDCE84F-4842-4052-BC95-9DFCBA084FCF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{216078BC-DAAB-44EB-9BD5-743BB27226C7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1-Doctor CSV"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3328DFE5-3B4F-44CB-A2C4-9BCD94FBC2A6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1-Doctor CSV"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Inputs[Data Conversion Input].Columns[DoctorID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DoctorID"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Inputs[Data Conversion Input].Columns[DoctorName_Trim]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DoctorName_Trim"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[DoctorName_Trim]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Inputs[Data Conversion Input].Columns[Specialization_Trim]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Specialization_Trim"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[Specialization_Trim]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Inputs[Data Conversion Input].Columns[DoctorContact_Trim]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DoctorContact_Trim"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[DoctorContact_Trim]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorID_int]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorID_int]"
+                      name="DoctorID_int"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorName_out]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorName_out]"
+                      name="DoctorName_out"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[DoctorName_Trim]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[Specialization_out]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[Specialization_out]"
+                      name="Specialization_out"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[Specialization_Trim]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorContact_out]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorContact_out]"
+                      name="DoctorContact_out"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[DoctorContact_Trim]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1-Doctor CSV\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Inputs[Derived Column Input].Columns[DoctorName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DoctorName"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Inputs[Derived Column Input].Columns[Specialization]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Specialization"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Specialization]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Inputs[Derived Column Input].Columns[DoctorContact]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DoctorContact"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorContact]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[DoctorName_Trim]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[DoctorName_Trim]"
+                      name="DoctorName_Trim"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorName]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(DoctorName)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[Specialization_Trim]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[Specialization_Trim]"
+                      name="Specialization_Trim"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Specialization]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(Specialization)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[DoctorContact_Trim]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output].Columns[DoctorContact_Trim]"
+                      name="DoctorContact_Trim"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorContact]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(DoctorContact)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="{D723CD86-8D8A-460B-9C52-94474745D401}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Doctor_CM]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DoctorID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorID]"
+                      name="DoctorID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DoctorName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorName]"
+                      name="DoctorName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Specialization]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Specialization]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Specialization]"
+                      name="Specialization"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorContact]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DoctorContact]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].Columns[DoctorContact]"
+                      name="DoctorContact"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DoctorID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DoctorID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DoctorName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DoctorName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Specialization]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Specialization" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DoctorContact]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DoctorContact" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgDoctor]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{61C598AE-4DA2-4E7D-AB8A-D796C3AB6DF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MELLOW.Healthcare_Staging.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoctorID_int]"
+                      cachedDataType="i4"
+                      cachedName="DoctorID_int"
+                      externalMetadataColumnId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoctorID]"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorID_int]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoctorName_out]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="DoctorName_out"
+                      externalMetadataColumnId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoctorName]"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorName_out]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Specialization_out]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Specialization_out"
+                      externalMetadataColumnId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Specialization]"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[Specialization_out]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoctorContact_out]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="DoctorContact_out"
+                      externalMetadataColumnId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoctorContact]"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output].Columns[DoctorContact_out]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoctorID]"
+                      dataType="i4"
+                      name="DoctorID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoctorName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="DoctorName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Specialization]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Specialization" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoctorContact]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="DoctorContact" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1-Doctor CSV.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 1-Doctor CSV.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task 1-Doctor CSV\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task 1-Doctor CSV.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1-Doctor CSV\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1-Doctor CSV\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 2-Procedure EXCEL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8D4CB776-6707-448C-A761-D0A8B05793E8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 2-Procedure EXCEL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Inputs[Data Conversion Input].Columns[ProcedureID]"
+                      cachedDataType="r8"
+                      cachedName="ProcedureID"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[ProcedureID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Inputs[Data Conversion Input].Columns[AppointmentID]"
+                      cachedDataType="r8"
+                      cachedName="AppointmentID"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[AppointmentID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Inputs[Data Conversion Input].Columns[ProcedureName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProcedureName"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[ProcedureName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[ProcedureID_int]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[ProcedureID_int]"
+                      name="ProcedureID_int"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[ProcedureID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[AppointmentID_int]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[AppointmentID_int]"
+                      name="AppointmentID_int"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[AppointmentID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[ProcedureName_out]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[ProcedureName_out]"
+                      name="ProcedureName_out"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[ProcedureName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Inputs[Derived Column Input].Columns[ProcedureName_out]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="ProcedureName_out"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[ProcedureName_out]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Output].Columns[ProcedureName_Clean]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Output].Columns[ProcedureName_Clean]"
+                      name="ProcedureName_Clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,150,1252)[TRIM](#{Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[ProcedureName_out]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,150,1252)TRIM(ProcedureName_out)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'Medical Procedure$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="{E2DEFAC4-AEB8-445E-8166-E9100DE42DFA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[ProcedureID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProcedureID]"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[ProcedureID]"
+                      name="ProcedureID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[ProcedureName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProcedureName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[ProcedureName]"
+                      name="ProcedureName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[AppointmentID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].ExternalColumns[AppointmentID]"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].Columns[AppointmentID]"
+                      name="AppointmentID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProcedureID]"
+                      dataType="r8"
+                      name="ProcedureID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProcedureName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProcedureName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output].ExternalColumns[AppointmentID]"
+                      dataType="r8"
+                      name="AppointmentID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[ProcedureID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[ProcedureID]"
+                      name="ProcedureID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[ProcedureName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[ProcedureName]"
+                      name="ProcedureName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[AppointmentID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[AppointmentID]"
+                      name="AppointmentID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgProcedure]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{61C598AE-4DA2-4E7D-AB8A-D796C3AB6DF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MELLOW.Healthcare_Staging.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProcedureID_int]"
+                      cachedDataType="i4"
+                      cachedName="ProcedureID_int"
+                      externalMetadataColumnId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProcedureID]"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[ProcedureID_int]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProcedureName_Clean]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="ProcedureName_Clean"
+                      externalMetadataColumnId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProcedureName]"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Output].Columns[ProcedureName_Clean]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AppointmentID_int]"
+                      cachedDataType="i4"
+                      cachedName="AppointmentID_int"
+                      externalMetadataColumnId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AppointmentID]"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output].Columns[AppointmentID_int]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProcedureID]"
+                      dataType="i4"
+                      name="ProcedureID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProcedureName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="ProcedureName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AppointmentID]"
+                      dataType="i4"
+                      name="AppointmentID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 2-Procedure EXCEL.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 2-Procedure EXCEL.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task 2-Procedure EXCEL\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task 2-Procedure EXCEL.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 2-Procedure EXCEL\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 3-Appointment SQL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8957E901-A646-4569-81C4-35D6732ACD8A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 3-Appointment SQL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgAppointment]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{61C598AE-4DA2-4E7D-AB8A-D796C3AB6DF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MELLOW.Healthcare_Staging.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AppointmentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AppointmentID"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AppointmentID]"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[AppointmentID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Time]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Time"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PatientID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PatientID"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PatientID]"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[PatientID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoctorID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DoctorID"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoctorID]"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoctorID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AppointmentID]"
+                      dataType="i4"
+                      name="AppointmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Time" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PatientID]"
+                      dataType="i4"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoctorID]"
+                      dataType="i4"
+                      name="DoctorID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT AppointmentID, [Date], [Time], PatientID, DoctorID
+FROM dbo.Appointment;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{4AFB2BA4-249E-4D79-9A1F-B360D3FBF88E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MELLOW.Healthcare Management-OLTP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[AppointmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AppointmentID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[AppointmentID]"
+                      name="AppointmentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]"
+                      name="Time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[PatientID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PatientID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[PatientID]"
+                      name="PatientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoctorID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoctorID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoctorID]"
+                      name="DoctorID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AppointmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AppointmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Time" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PatientID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoctorID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DoctorID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AppointmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AppointmentID]"
+                      name="AppointmentID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Time]"
+                      name="Time" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PatientID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PatientID]"
+                      name="PatientID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoctorID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoctorID]"
+                      name="DoctorID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 3-Appointment SQL.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 3-Appointment SQL\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 4-Billing SQL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{615728A5-4860-43CB-9DA7-BC2B234824B7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 4-Billing SQL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgBilling]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{61C598AE-4DA2-4E7D-AB8A-D796C3AB6DF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MELLOW.Healthcare_Staging.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="InvoiceID"
+                      externalMetadataColumnId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PatientID]"
+                      cachedDataType="i2"
+                      cachedName="PatientID"
+                      externalMetadataColumnId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PatientID]"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[PatientID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Items]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Items"
+                      externalMetadataColumnId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Items]"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Items]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedDataType="i4"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                      dataType="wstr"
+                      length="50"
+                      name="InvoiceID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PatientID]"
+                      dataType="i4"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Items]"
+                      dataType="wstr"
+                      length="50"
+                      name="Items" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      dataType="numeric"
+                      name="Amount"
+                      precision="18"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT InvoiceID, PatientID, Items, Amount
+FROM dbo.Billing;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{4AFB2BA4-249E-4D79-9A1F-B360D3FBF88E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MELLOW.Healthcare Management-OLTP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceID]"
+                      name="InvoiceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[PatientID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PatientID]"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[PatientID]"
+                      name="PatientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Items]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Items]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Items]"
+                      name="Items"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceID]"
+                      dataType="wstr"
+                      length="50"
+                      name="InvoiceID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PatientID]"
+                      dataType="i2"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Items]"
+                      dataType="wstr"
+                      length="50"
+                      name="Items" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      dataType="i4"
+                      name="Amount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceID]"
+                      name="InvoiceID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PatientID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PatientID]"
+                      name="PatientID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Items]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Items]"
+                      name="Items" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      name="Amount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 4-Billing SQL.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 4-Billing SQL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 4-Billing SQL\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task-Patient CSV"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8F36B7AA-E5ED-46B0-84D4-005EDE358C40}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task-Patient CSV"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task-Patient CSV\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task-Patient CSV\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Inputs[Data Conversion Input].Columns[PatientID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PatientID"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PatientID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName_Trim]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName_Trim"
+                      lineageId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[FirstName_Trim]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Inputs[Data Conversion Input].Columns[LastName_Trim]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName_Trim"
+                      lineageId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[LastName_Trim]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Inputs[Data Conversion Input].Columns[Email_Trim]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Email_Trim"
+                      lineageId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[Email_Trim]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task-Patient CSV\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[PatientID_int]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[PatientID_int]"
+                      name="PatientID_int"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PatientID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_out]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_out]"
+                      name="FirstName_out"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[FirstName_Trim]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_out]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_out]"
+                      name="LastName_out"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[LastName_Trim]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[Email_out]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[Email_out]"
+                      name="Email_out"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[Email_Trim]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task-Patient CSV\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task-Patient CSV\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task-Patient CSV\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Derived Column.Inputs[Derived Column Input].Columns[firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="firstname"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[firstname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Derived Column.Inputs[Derived Column Input].Columns[lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="lastname"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[lastname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Derived Column.Inputs[Derived Column Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="email"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[email]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task-Patient CSV\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[FirstName_Trim]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[FirstName_Trim]"
+                      name="FirstName_Trim"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[firstname]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(firstname)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[LastName_Trim]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[LastName_Trim]"
+                      name="LastName_Trim"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[lastname]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(lastname)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[Email_Trim]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output].Columns[Email_Trim]"
+                      name="Email_Trim"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[email]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(email)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task-Patient CSV\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task-Patient CSV\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task-Patient CSV\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="{92B9CE03-CAB2-43CF-AABF-65B54B776F09}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Patient_CM]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PatientID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PatientID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PatientID]"
+                      name="PatientID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[firstname]"
+                      length="50"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[firstname]"
+                      name="firstname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lastname]"
+                      length="50"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[lastname]"
+                      name="lastname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      length="50"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PatientID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="firstname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lastname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task-Patient CSV\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgPatient]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{61C598AE-4DA2-4E7D-AB8A-D796C3AB6DF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MELLOW.Healthcare_Staging.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PatientID_int]"
+                      cachedDataType="i4"
+                      cachedName="PatientID_int"
+                      externalMetadataColumnId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PatientID]"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[PatientID_int]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName_out]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FirstName_out"
+                      externalMetadataColumnId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_out]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName_out]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="LastName_out"
+                      externalMetadataColumnId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_out]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email_out]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Email_out"
+                      externalMetadataColumnId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output].Columns[Email_out]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PatientID]"
+                      dataType="i4"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task-Patient CSV.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task-Patient CSV\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task-Patient CSV\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task-Patient CSV.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task-Patient CSV\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task-Patient CSV\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task-Patient CSV.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task-Patient CSV\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task-Patient CSV\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ABD7D93B-900F-47AD-B792-5175499E39DB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{61C598AE-4DA2-4E7D-AB8A-D796C3AB6DF5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE StgPatient;&#xA;TRUNCATE TABLE StgDoctor;&#xA;TRUNCATE TABLE StgProcedure;&#xA;TRUNCATE TABLE StgAppointment;&#xA;TRUNCATE TABLE StgBilling;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2D9E8D40-1C58-4D81-8D64-F7E42A425D51}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task-Patient CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{100C72B7-D562-40D2-9D59-F4E62AC2E183}"
+      DTS:From="Package\Data Flow Task-Patient CSV"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Data Flow Task 1-Doctor CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{ACDAB733-B37C-4C3F-A595-DC896F54C7EA}"
+      DTS:From="Package\Data Flow Task 1-Doctor CSV"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Data Flow Task 2-Procedure EXCEL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{C530FD47-E585-4A75-9847-8CA72E28F643}"
+      DTS:From="Package\Data Flow Task 2-Procedure EXCEL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Data Flow Task 3-Appointment SQL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{2805CCA7-6E98-4E5B-B3C9-37044F975DE2}"
+      DTS:From="Package\Data Flow Task 3-Appointment SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Data Flow Task 4-Billing SQL" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Data Flow Task 1-Doctor CSV"
+          TopLeft="549.166636661524,254.799998228153" />
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\Data Flow Task 2-Procedure EXCEL"
+          TopLeft="331.6666485452,367.466664111349" />
+        <NodeLayout
+          Size="244.8,41.6"
+          Id="Package\Data Flow Task 3-Appointment SQL"
+          TopLeft="633.333298729527,381.333330681589" />
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Data Flow Task 4-Billing SQL"
+          TopLeft="288.333317579495,486.199996619026" />
+        <NodeLayout
+          Size="210.4,41.6"
+          Id="Package\Data Flow Task-Patient CSV"
+          TopLeft="235.833320447969,214.933331838714" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="289.166650867297,59.7999995841583" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="371.566650867297,101.399999584158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30.5333304193286,113.533332254556"
+              Start="0,0"
+              End="-30.5333304193286,106.033332254556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.7666661272778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.7666661272778"
+                    Point2="0,56.7666661272778"
+                    Point3="-4,56.7666661272778" />
+                  <mssgle:LineSegment
+                    End="-26.5333304193286,56.7666661272778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.5333304193286,56.7666661272778"
+                    Point2="-30.5333304193286,56.7666661272778"
+                    Point3="-30.5333304193286,60.7666661272778" />
+                  <mssgle:LineSegment
+                    End="-30.5333304193286,106.033332254556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="446.233320447969,235.733331838714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.933316213555,39.8666663894388"
+              Start="0,0"
+              End="95.4333162135554,39.8666663894388">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="47.4666581067777,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.4666581067777,0"
+                    Point2="51.4666581067777,0"
+                    Point3="51.4666581067777,4" />
+                  <mssgle:LineSegment
+                    End="51.4666581067777,35.8666663894388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.4666581067777,35.8666663894388"
+                    Point2="51.4666581067777,39.8666663894388"
+                    Point3="55.4666581067777,39.8666663894388" />
+                  <mssgle:LineSegment
+                    End="95.4333162135554,39.8666663894388" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="657.966636661524,296.399998228153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-202.699988116324,71.0666658831968"
+              Start="0,0"
+              End="-202.699988116324,63.5666658831968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5333329415984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5333329415984"
+                    Point2="0,35.5333329415984"
+                    Point3="-4,35.5333329415984" />
+                  <mssgle:LineSegment
+                    End="-198.699988116324,35.5333329415984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-198.699988116324,35.5333329415984"
+                    Point2="-202.699988116324,35.5333329415984"
+                    Point3="-202.699988116324,39.5333329415984" />
+                  <mssgle:LineSegment
+                    End="-202.699988116324,63.5666658831968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="578.8666485452,388.266664111349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.4666501843275,13.8666665702395"
+              Start="0,0"
+              End="46.9666501843275,13.8666665702395">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.2333250921637,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.2333250921637,0"
+                    Point2="27.2333250921637,0"
+                    Point3="27.2333250921637,4" />
+                  <mssgle:LineSegment
+                    End="27.2333250921637,9.86666657023949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.2333250921637,9.86666657023949"
+                    Point2="27.2333250921637,13.8666665702395"
+                    Point3="31.2333250921637,13.8666665702395" />
+                  <mssgle:LineSegment
+                    End="46.9666501843275,13.8666665702395" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="755.733298729527,422.933330681589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-360.199981150032,63.266665937437"
+              Start="0,0"
+              End="-360.199981150032,55.766665937437">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.6333329687185" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.6333329687185"
+                    Point2="0,31.6333329687185"
+                    Point3="-4,31.6333329687185" />
+                  <mssgle:LineSegment
+                    End="-356.199981150032,31.6333329687185" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-356.199981150032,31.6333329687185"
+                    Point2="-360.199981150032,31.6333329687185"
+                    Point3="-360.199981150032,35.6333329687185" />
+                  <mssgle:LineSegment
+                    End="-360.199981150032,55.766665937437" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1-Doctor CSV">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination"
+          TopLeft="171.999997437001,461.999993115663" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Data Flow Task 1-Doctor CSV\Derived Column"
+          TopLeft="174.999997392297,197.99999704957" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Data Flow Task 1-Doctor CSV\Data Conversion"
+          TopLeft="179.999997317791,329.999995082617" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Data Flow Task 1-Doctor CSV\Flat File Source"
+          TopLeft="183.999997258187,54.9999991804363" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1-Doctor CSV.Paths[Flat File Source Output]"
+          TopLeft="259.599997258187,96.5999991804363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.19999986588959,101.399997869134"
+              Start="0,0"
+              End="-8.19999986588959,93.899997869134">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.699998934567" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.699998934567"
+                    Point2="0,50.699998934567"
+                    Point3="-4,50.699998934567" />
+                  <mssgle:LineSegment
+                    End="-4.19999986588959,50.699998934567" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.19999986588959,50.699998934567"
+                    Point2="-8.19999986588959,50.699998934567"
+                    Point3="-8.19999986588959,54.699998934567" />
+                  <mssgle:LineSegment
+                    End="-8.19999986588959,93.899997869134" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task 1-Doctor CSV.Paths[Derived Column Output]"
+          TopLeft="254.699997355044,239.59999704957">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90.3999980330466"
+              Start="0,0"
+              End="0,82.8999980330466">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.8999980330466" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task 1-Doctor CSV.Paths[Data Conversion Output]"
+          TopLeft="257.799997377396,371.599995082617">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90.3999980330468"
+              Start="0,0"
+              End="0,82.8999980330468">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.8999980330468" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1-Doctor CSV\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 2-Procedure EXCEL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Data Flow Task 2-Procedure EXCEL\Derived Column"
+          TopLeft="167.999997496605,360.999994620681" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination"
+          TopLeft="157.999997645616,512.999992355704" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Data Flow Task 2-Procedure EXCEL\Excel Source"
+          TopLeft="173.999997407198,41.9999993741512" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Data Flow Task 2-Procedure EXCEL\Data Conversion"
+          TopLeft="161.999997586011,197.99999704957" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 2-Procedure EXCEL.Paths[Derived Column Output]"
+          TopLeft="243.99999757111,402.599994620681">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,110.399997735023"
+              Start="0,0"
+              End="0,102.899997735023">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,102.899997735023" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task 2-Procedure EXCEL.Paths[Data Conversion Output]"
+          TopLeft="242.199997541309,239.59999704957">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,121.399997571111"
+              Start="0,0"
+              End="0,113.899997571111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.899997571111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task 2-Procedure EXCEL.Paths[Excel Source Output]"
+          TopLeft="241.999997496605,83.5999993741512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114.399997675419"
+              Start="0,0"
+              End="0,106.899997675419">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.899997675419" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 2-Procedure EXCEL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 2-Procedure EXCEL\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 3-Appointment SQL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination"
+          TopLeft="128.99999807775,258.999996140599" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task 3-Appointment SQL\OLE DB Source"
+          TopLeft="134.999997988343,47.9999992847443" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 3-Appointment SQL.Paths[OLE DB Source Output]"
+          TopLeft="212.799998033047,89.5999992847444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,169.399996855855"
+              Start="0,0"
+              End="0,161.899996855855">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,161.899996855855" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 3-Appointment SQL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 3-Appointment SQL\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 4-Billing SQL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task 4-Billing SQL\OLE DB Source"
+          TopLeft="175.999997377396,41.9999993741512" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task 4-Billing SQL\OLE DB Destination"
+          TopLeft="170.999997451902,286.999995723366" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 4-Billing SQL.Paths[OLE DB Source Output]"
+          TopLeft="254.299997414649,83.5999993741514">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,203.399996349216"
+              Start="0,0"
+              End="0,195.899996349216">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,195.899996349216" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 4-Billing SQL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 4-Billing SQL\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task-Patient CSV">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task-Patient CSV\OLE DB Destination"
+          TopLeft="189.500008401771,462.866659672988" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Data Flow Task-Patient CSV\Derived Column"
+          TopLeft="194.500008327265,191.866663711203" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Data Flow Task-Patient CSV\Data Conversion"
+          TopLeft="190.500008386869,325.866661714447" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Data Flow Task-Patient CSV\Flat File Source"
+          TopLeft="196.500008297463,47.8666658569708" />
+        <EdgeLayout
+          Id="Package\Data Flow Task-Patient CSV.Paths[Flat File Source Output]"
+          TopLeft="271.500008312364,89.4666658569704">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,102.399997854233"
+              Start="0,0"
+              End="0,94.899997854233">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.899997854233" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task-Patient CSV.Paths[Derived Column Output]"
+          TopLeft="269.700008357067,233.466663711203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,92.3999980032442"
+              Start="0,0"
+              End="0,84.8999980032442">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,84.8999980032442" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task-Patient CSV.Paths[Data Conversion Output]"
+          TopLeft="271.80000839432,367.466661714447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95.3999979585408"
+              Start="0,0"
+              End="0,87.8999979585408">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.8999979585408" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task-Patient CSV\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
