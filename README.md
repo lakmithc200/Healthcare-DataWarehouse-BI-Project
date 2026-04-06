@@ -8,6 +8,7 @@ This project demonstrates a complete Business Intelligence solution using a heal
 - SSAS (Multidimensional Cube)
 - Microsoft Excel (OLAP Analysis)
 - Power BI (Reporting & Dashboards)
+- SSIS for Package Loading
 
 ## 📊 Features
 - Star schema data warehouse
@@ -21,11 +22,6 @@ This project demonstrates a complete Business Intelligence solution using a heal
 - `2_SSAS_Cube` – Cube project files
 - `3_Excel_OLAP` – Excel OLAP analysis
 - `4_PowerBI` – Power BI dashboards
-- `5_Documentation` – Final report
-
-## 📷 Sample Outputs
-(Add screenshots here if you want)
 
 ## 👨‍🎓 Author
-- IT23659544
-- L C Edirisinghe
+- Lakmith Edirisinghe
